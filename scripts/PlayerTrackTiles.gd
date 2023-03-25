@@ -6,24 +6,9 @@ var mapPXWidth = 1280
 var mapWidth = null
 var mapHeight = null
 
-var environment_type = 1
+var rng = RandomNumberGenerator.new()
 
-### Building patterns ###
-var grass1_block = [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
-var grass2_block = [[9, 10, 11], [12, 13, 14], [15, 16, 17]]
-var grass3_block = [[18, 19, 20], [21, 22, 23], [24, 25, 26]]
-
-var stick_platform  = [49, 50, 51]
-var block1_platform = [27, 28, 29]
-var block2_platform = [38, 39, 40]
-
-var block1_cube = [[35, 36], [34, 33]]
-var block2_cube = [[46, 47], [45, 44]]
-
-var block1_col = [[30], [31], [32]]
-var block2_col = [[41], [42], [43]]
-#########################
-
+var environment_type = 0
 func loadGround(x: int, y: int, s: int, f: int):
 	var cell = -1
 	match y:
@@ -79,28 +64,21 @@ func loadPart(s: int, f: int):
 	environment_type += 1
 	if 2 < environment_type:
 		environment_type = 0
-	for y in range(mapHeight):
+	for y in range(7, 9):
 		for x in range(s, f):
 			loadGround(x, y, s, f)
-
-func getMap():
-	var map = []
-	for y in range(mapHeight):
-		var row = []
-		for x in range(mapWidth):
-			var cell = get_cell(x, y)
-			row.append(cell)
-		map.append(row)
-	return map
 
 func _ready():
 	mapWidth = Global.MAP_WIDTH
 	mapHeight = Global.MAP_HEIGHT
+	rng.randomize()
+	environment_type = rng.randi_range(0, 2)
+	loadPart(mapWidth / 2, mapWidth)
+	loadPart(0, mapWidth / 2)
 
 func _process(delta):
-	
 	position.x -= scrollSpeed * delta
 	if position.x < -mapPXWidth:
 		loadPart(mapWidth / 2, mapWidth)
-		position.x += mapPXWidth
 		loadPart(0, mapWidth / 2)
+		position.x += mapPXWidth
