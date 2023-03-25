@@ -1,4 +1,4 @@
-[gd_scene load_steps=211 format=2]
+[gd_scene load_steps=212 format=2]
 
 [ext_resource path="res://assets/Main Characters/Appearing (96x96).png" type="Texture" id=1]
 [ext_resource path="res://assets/Main Characters/Desappearing (96x96).png" type="Texture" id=2]
@@ -30,6 +30,7 @@
 [ext_resource path="res://assets/Main Characters/Virtual Guy/Jump (32x32).png" type="Texture" id=28]
 [ext_resource path="res://assets/Main Characters/Virtual Guy/Wall Jump (32x32).png" type="Texture" id=29]
 [ext_resource path="res://assets/Main Characters/Virtual Guy/Double Jump (32x32).png" type="Texture" id=30]
+[ext_resource path="res://scripts/Player.gd" type="Script" id=31]
 
 [sub_resource type="CapsuleShape2D" id=181]
 radius = 12.0
@@ -901,6 +902,7 @@ animations = [ {
 } ]
 
 [node name="Player" type="KinematicBody2D"]
+script = ExtResource( 31 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -911,5 +913,5 @@ shape = SubResource( 181 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "mask_idle"
-frame = 3
+frame = 6
 playing = true
