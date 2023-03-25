@@ -1,22 +1,23 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://assets/Background/Yellow.png" type="Texture" id=2]
-[ext_resource path="res://assets/Fonts/Fruits Donut.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/Fonts/Comics Deluxe.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/Terrain/Terrain (16x16).png" type="Texture" id=4]
 [ext_resource path="res://objects/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/Fonts/Fruits Donut.ttf" type="DynamicFontData" id=6]
 
 [sub_resource type="DynamicFont" id=30]
 size = 65
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 3 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 3 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -350,6 +351,18 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 } ]
 3/z_index = 0
 
+[sub_resource type="DynamicFont" id=31]
+size = 21
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=32]
+size = 30
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -384,6 +397,69 @@ tile_set = SubResource( 5 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 786438, 3, 65537, 786439, 3, 65538, 786456, 2, 65537, 786457, 2, 65538, 851974, 3, 131073, 851975, 3, 131074, 851992, 2, 131073, 851993, 2, 131074, 917504, 0, 0, 917505, 0, 1, 917506, 0, 1, 917507, 0, 1, 917508, 0, 1, 917509, 0, 1, 917510, 0, 1, 917511, 0, 1, 917512, 0, 1, 917513, 0, 1, 917514, 0, 1, 917515, 0, 1, 917516, 0, 1, 917517, 0, 1, 917518, 0, 1, 917519, 0, 1, 917520, 0, 1, 917521, 0, 1, 917522, 0, 1, 917523, 0, 1, 917524, 0, 1, 917525, 0, 1, 917526, 0, 1, 917527, 0, 1, 917528, 0, 1, 917529, 0, 1, 917530, 0, 1, 917531, 0, 1, 917532, 0, 1, 917533, 0, 1, 917534, 0, 1, 917535, 0, 2, 983040, 0, 65536, 983041, 1, 0, 983042, 1, 1, 983043, 0, 65537, 983044, 0, 65537, 983045, 0, 65537, 983046, 0, 65537, 983047, 0, 65537, 983048, 0, 65537, 983049, 0, 65537, 983050, 0, 65537, 983051, 0, 65537, 983052, 0, 65537, 983053, 0, 65537, 983054, 0, 65537, 983055, 0, 65537, 983056, 1, 0, 983057, 1, 1, 983058, 0, 65537, 983059, 0, 65537, 983060, 0, 65537, 983061, 0, 65537, 983062, 0, 65537, 983063, 0, 65537, 983064, 0, 65537, 983065, 0, 65537, 983066, 0, 65537, 983067, 0, 65537, 983068, 0, 65537, 983069, 0, 65537, 983070, 0, 65537, 983071, 0, 65538, 1048576, 0, 65536, 1048577, 1, 65536, 1048578, 1, 65537, 1048579, 0, 65537, 1048580, 0, 65537, 1048581, 0, 65537, 1048582, 0, 65537, 1048583, 0, 65537, 1048584, 0, 65537, 1048585, 0, 65537, 1048586, 0, 65537, 1048587, 0, 65537, 1048588, 0, 65537, 1048589, 0, 65537, 1048590, 0, 65537, 1048591, 0, 65537, 1048592, 1, 65536, 1048593, 1, 65537, 1048594, 0, 65537, 1048595, 0, 65537, 1048596, 0, 65537, 1048597, 0, 65537, 1048598, 0, 65537, 1048599, 0, 65537, 1048600, 0, 65537, 1048601, 0, 65537, 1048602, 0, 65537, 1048603, 0, 65537, 1048604, 0, 65537, 1048605, 0, 65537, 1048606, 0, 65537, 1048607, 0, 65538, 1114112, 0, 131072, 1114113, 0, 131073, 1114114, 0, 131073, 1114115, 0, 131073, 1114116, 0, 131073, 1114117, 0, 131073, 1114118, 0, 131073, 1114119, 0, 131073, 1114120, 0, 131073, 1114121, 0, 131073, 1114122, 0, 131073, 1114123, 0, 131073, 1114124, 0, 131073, 1114125, 0, 131073, 1114126, 0, 131073, 1114127, 0, 131073, 1114128, 0, 131073, 1114129, 0, 131073, 1114130, 0, 131073, 1114131, 0, 131073, 1114132, 0, 131073, 1114133, 0, 131073, 1114134, 0, 131073, 1114135, 0, 131073, 1114136, 0, 131073, 1114137, 0, 131073, 1114138, 0, 131073, 1114139, 0, 131073, 1114140, 0, 131073, 1114141, 0, 131073, 1114142, 0, 131073, 1114143, 0, 131074 )
+
+[node name="Selector1" type="Node" parent="."]
+
+[node name="infop1" type="Label" parent="Selector1"]
+margin_top = 300.0
+margin_right = 560.0
+margin_bottom = 400.0
+custom_fonts/font = SubResource( 31 )
+text = "Jump with
+Switch character with"
+align = 1
+valign = 1
+
+[node name="infop2" type="Label" parent="Selector1"]
+margin_left = 720.0
+margin_top = 300.0
+margin_right = 1280.0
+margin_bottom = 400.0
+custom_fonts/font = SubResource( 31 )
+text = "Jump with
+Switch character with"
+align = 1
+valign = 1
+
+[node name="z" type="Label" parent="Selector1"]
+margin_left = 327.0
+margin_top = 314.0
+margin_right = 367.0
+margin_bottom = 354.0
+custom_fonts/font = SubResource( 32 )
+text = "Z"
+align = 1
+valign = 1
+
+[node name="s" type="Label" parent="Selector1"]
+margin_left = 379.0
+margin_top = 338.0
+margin_right = 419.0
+margin_bottom = 378.0
+custom_fonts/font = SubResource( 32 )
+text = "S"
+align = 1
+valign = 1
+
+[node name="o" type="Label" parent="Selector1"]
+margin_left = 1046.0
+margin_top = 314.0
+margin_right = 1086.0
+margin_bottom = 354.0
+custom_fonts/font = SubResource( 32 )
+text = "O"
+align = 1
+valign = 1
+
+[node name="l" type="Label" parent="Selector1"]
+margin_left = 1097.0
+margin_top = 338.0
+margin_right = 1137.0
+margin_bottom = 378.0
+custom_fonts/font = SubResource( 32 )
+text = "L"
+align = 1
+valign = 1
 
 [node name="Player1" parent="." instance=ExtResource( 5 )]
 position = Vector2( 281, -100 )
