@@ -907,6 +907,8 @@ script = ExtResource( 31 )
 __meta__ = {
 "_edit_group_": true
 }
+gravity = 1100
+jumpPower = 700
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 181 )
@@ -914,5 +916,5 @@ shape = SubResource( 181 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "mask_idle"
-frame = 5
+frame = 10
 playing = true

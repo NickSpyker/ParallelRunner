@@ -3,26 +3,36 @@ extends KinematicBody2D
 export var gravity = 600
 export var jumpPower = 500
 
-var rng = RandomNumberGenerator.new()
 var velocity = Vector2.ZERO
 
 var playerType = "mask_"
+var idle = "idle"
+
+func getAnimation():
+	var actualPlayerAnimation = $AnimatedSprite.animation
+	var separatorIndex = actualPlayerAnimation.find("_")
+	return actualPlayerAnimation.substr(separatorIndex + 1)
 
 func _ready():
-	rng.randomize()
-	var player = ["mask_", "ninja_", "pink_", "virtual_"]
-	playerType = player[rng.randi_range(0, 3)]
-	$AnimatedSprite.play(playerType + "run")
 	velocity = Vector2.ZERO
 
 func _process(delta):
 	if !is_on_floor():
+		if velocity.y > 0:
+			$AnimatedSprite.play(playerType + "fall")
+		else:
+			$AnimatedSprite.play(playerType + "jump")
 		velocity.y += gravity * delta
+	else:
+		$AnimatedSprite.play(playerType + idle)
 	velocity = move_and_slide(velocity, Vector2.UP)
 
 func Jump():
 	if is_on_floor():
 		velocity.y = -jumpPower
+
+func setIdleAnimation(animation: String):
+	idle = animation
 
 func setPlayerType(player: String):
 	match player:
@@ -36,7 +46,4 @@ func setPlayerType(player: String):
 			playerType = "virtual_"
 		_:
 			pass
-	var actualPlayerAnimation = $AnimatedSprite.animation
-	var separatorIndex = actualPlayerAnimation.find("_")
-	var actualAnimation = actualPlayerAnimation.substr(separatorIndex + 1)
-	$AnimatedSprite.play(playerType + actualAnimation)
+	$AnimatedSprite.play(playerType + getAnimation())
