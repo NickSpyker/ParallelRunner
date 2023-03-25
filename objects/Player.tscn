@@ -902,6 +902,7 @@ animations = [ {
 } ]
 
 [node name="Player" type="KinematicBody2D"]
+scale = Vector2( 1.75, 1.75 )
 script = ExtResource( 31 )
 __meta__ = {
 "_edit_group_": true
@@ -913,5 +914,5 @@ shape = SubResource( 181 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "mask_idle"
-frame = 6
+frame = 10
 playing = true
