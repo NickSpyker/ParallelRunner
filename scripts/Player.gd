@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
-export var gravity = 500
-export var jumpPower = 400
+export var gravity = 600
+export var jumpPower = 500
 
 var rng = RandomNumberGenerator.new()
 var velocity = Vector2.ZERO
