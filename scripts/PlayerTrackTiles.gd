@@ -1,7 +1,7 @@
 extends TileMap
 
 export var scrollSpeed = 150
-var mapPXWidth = 1280
+var mapPXWidth = null
 
 var mapWidth = null
 var mapHeight = null
@@ -12,7 +12,7 @@ var environment_type = 0
 func loadGround(x: int, y: int, s: int, f: int):
 	var cell = -1
 	match y:
-		7: match environment_type:
+		13: match environment_type:
 			0:
 				if x == s:
 					cell = 0
@@ -34,7 +34,7 @@ func loadGround(x: int, y: int, s: int, f: int):
 					cell = 20
 				else:
 					cell = 19
-		8: match environment_type:
+		14: match environment_type:
 			0:
 				if x == s:
 					cell = 6
@@ -64,13 +64,14 @@ func loadPart(s: int, f: int):
 	environment_type += 1
 	if 2 < environment_type:
 		environment_type = 0
-	for y in range(7, 9):
+	for y in range(13, 15):
 		for x in range(s, f):
 			loadGround(x, y, s, f)
 
 func _ready():
 	mapWidth = Global.MAP_WIDTH
 	mapHeight = Global.MAP_HEIGHT
+	mapPXWidth = mapWidth * 24 / 2
 	rng.randomize()
 	environment_type = rng.randi_range(0, 2)
 	loadPart(mapWidth / 2, mapWidth)
