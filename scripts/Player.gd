@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 export var gravity = 600
 export var jumpPower = 500
+export var moveSpeed = 100
 
 var velocity = Vector2.ZERO
 
@@ -30,6 +31,15 @@ func _process(delta):
 func Jump():
 	if is_on_floor():
 		velocity.y = -jumpPower
+
+func move_right():
+	velocity.x = moveSpeed
+
+func move_left():
+	velocity.x = -moveSpeed
+
+func stop_move():
+	velocity.x = 0
 
 func setIdleAnimation(animation: String):
 	idle = animation

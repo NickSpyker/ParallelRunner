@@ -1,9 +1,12 @@
 extends Node2D
 
+export(PackedScene) var props
+
 export var parallaxSpeed = 50
 var parallax = 0
 
 func _ready():
+	randomize()
 	$Player1.setPlayerType(Global.playerType1)
 	$Player2.setPlayerType(Global.playerType2)
 	$Player1.setIdleAnimation("run")
@@ -21,3 +24,37 @@ func _process(delta):
 		$Player1.Jump()
 	if Input.is_action_pressed("player2_jump"):
 		$Player2.Jump()
+	
+	if Input.is_action_pressed("player1_right"):
+		$Player1.move_right()
+	elif Input.is_action_pressed("player1_left"):
+		$Player1.move_left()
+	else:
+		$Player1.stop_move()
+	
+	if Input.is_action_pressed("player2_right"):
+		$Player2.move_right()
+	elif Input.is_action_pressed("player2_left"):
+		$Player2.move_left()
+	else:
+		$Player2.stop_move()
+
+func _on_Timer_timeout():
+	var luck = randi() % 3
+	if luck == 2:
+		pass
+	var prop = props.instance()
+	var index = randi() % 7
+	var child_count = prop.get_child_count()
+	for i in range(child_count - 1, -1, -1):
+		if i != index:
+			var child = prop.get_child(i)
+			prop.remove_child(child)
+	match luck:
+		0:
+			prop.position.y = 312
+		1:
+			prop.position.y = 672
+		_:
+			pass
+	add_child(prop)
