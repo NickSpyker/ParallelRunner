@@ -27,19 +27,26 @@ func _process(delta):
 	else:
 		$AnimatedSprite.play(playerType + idle)
 	velocity = move_and_slide(velocity, Vector2.UP)
+	if position.x < 0:
+		queue_free()
 
 func Jump():
 	if is_on_floor():
 		velocity.y = -jumpPower
 
+var move_check = false
 func move_right():
+	move_check = true
 	velocity.x = moveSpeed
 
 func move_left():
+	move_check = true
 	velocity.x = -moveSpeed
 
 func stop_move():
-	velocity.x = 0
+	if move_check:
+		velocity.x = 0
+		move_check = false
 
 func setIdleAnimation(animation: String):
 	idle = animation

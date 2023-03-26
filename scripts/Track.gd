@@ -14,29 +14,34 @@ func _ready():
 
 func _process(delta):
 	
+	if !has_node("Player1"):
+		pass
+	if !has_node("Player2"):
+		pass
+	
 	parallax += parallaxSpeed * delta
 	if 1280 <= parallax:
 		parallax = 0
 	$Background/Top.region_rect = Rect2(parallax, parallax / 2, 1280, 360)
 	$Background/Bottom.region_rect = Rect2(parallax, parallax / 2, 1280, 360)
 	
-	if Input.is_action_pressed("player1_jump"):
+	if Input.is_action_pressed("player1_jump") and has_node("Player1"):
 		$Player1.Jump()
-	if Input.is_action_pressed("player2_jump"):
+	if Input.is_action_pressed("player2_jump") and has_node("Player2"):
 		$Player2.Jump()
 	
-	if Input.is_action_pressed("player1_right"):
+	if Input.is_action_pressed("player1_right") and has_node("Player1"):
 		$Player1.move_right()
-	elif Input.is_action_pressed("player1_left"):
+	elif Input.is_action_pressed("player1_left") and has_node("Player1"):
 		$Player1.move_left()
-	else:
+	elif has_node("Player1"):
 		$Player1.stop_move()
 	
-	if Input.is_action_pressed("player2_right"):
+	if Input.is_action_pressed("player2_right") and has_node("Player2"):
 		$Player2.move_right()
-	elif Input.is_action_pressed("player2_left"):
+	elif Input.is_action_pressed("player2_left") and has_node("Player2"):
 		$Player2.move_left()
-	else:
+	elif has_node("Player2"):
 		$Player2.stop_move()
 
 func _on_Timer_timeout():

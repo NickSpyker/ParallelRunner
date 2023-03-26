@@ -437,7 +437,9 @@ margin_right = 560.0
 margin_bottom = 400.0
 custom_fonts/font = SubResource( 31 )
 text = "Jump with
-Switch character with"
+Switch character with
+Advance with
+Back with"
 align = 1
 valign = 1
 
@@ -448,35 +450,37 @@ margin_right = 1280.0
 margin_bottom = 400.0
 custom_fonts/font = SubResource( 31 )
 text = "Jump with
-Switch character with"
+Switch character with
+Advance with
+Back with"
 align = 1
 valign = 1
 
 [node name="z" type="Label" parent="Selector1"]
 margin_left = 327.0
-margin_top = 314.0
+margin_top = 289.0
 margin_right = 367.0
-margin_bottom = 354.0
+margin_bottom = 329.0
 custom_fonts/font = SubResource( 32 )
 text = "Z"
 align = 1
 valign = 1
 
 [node name="s" type="Label" parent="Selector1"]
-margin_left = 379.0
-margin_top = 338.0
-margin_right = 419.0
-margin_bottom = 378.0
+margin_left = 380.0
+margin_top = 317.0
+margin_right = 420.0
+margin_bottom = 357.0
 custom_fonts/font = SubResource( 32 )
 text = "S"
 align = 1
 valign = 1
 
 [node name="o" type="Label" parent="Selector1"]
-margin_left = 1046.0
-margin_top = 314.0
-margin_right = 1086.0
-margin_bottom = 354.0
+margin_left = 1048.0
+margin_top = 290.0
+margin_right = 1088.0
+margin_bottom = 330.0
 custom_fonts/font = SubResource( 32 )
 text = "O"
 align = 1
@@ -484,11 +488,51 @@ valign = 1
 
 [node name="l" type="Label" parent="Selector1"]
 margin_left = 1097.0
-margin_top = 338.0
+margin_top = 316.0
 margin_right = 1137.0
-margin_bottom = 378.0
+margin_bottom = 356.0
 custom_fonts/font = SubResource( 32 )
 text = "L"
+align = 1
+valign = 1
+
+[node name="z2" type="Label" parent="Selector1"]
+margin_left = 339.0
+margin_top = 342.0
+margin_right = 379.0
+margin_bottom = 382.0
+custom_fonts/font = SubResource( 32 )
+text = "D"
+align = 1
+valign = 1
+
+[node name="z3" type="Label" parent="Selector1"]
+margin_left = 321.0
+margin_top = 367.0
+margin_right = 361.0
+margin_bottom = 407.0
+custom_fonts/font = SubResource( 32 )
+text = "Q"
+align = 1
+valign = 1
+
+[node name="o2" type="Label" parent="Selector1"]
+margin_left = 1061.0
+margin_top = 342.0
+margin_right = 1101.0
+margin_bottom = 382.0
+custom_fonts/font = SubResource( 32 )
+text = "M"
+align = 1
+valign = 1
+
+[node name="o3" type="Label" parent="Selector1"]
+margin_left = 1044.0
+margin_top = 368.0
+margin_right = 1084.0
+margin_bottom = 408.0
+custom_fonts/font = SubResource( 32 )
+text = "K"
 align = 1
 valign = 1
 
