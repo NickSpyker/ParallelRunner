@@ -11,13 +11,21 @@ func _ready():
 	$Player2.setPlayerType(Global.playerType2)
 	$Player1.setIdleAnimation("run")
 	$Player2.setIdleAnimation("run")
+	$Control.visible = false
+	$Control/Button.hide()
 
 func _process(delta):
 	
 	if !has_node("Player1"):
-		pass
+		$Control.margin_top = 360
+		$Control.visible = true
+		$Control/win_text.text = str("Player 2 WIN !")
+		$Control/Button.show()
 	if !has_node("Player2"):
-		pass
+		$Control.margin_top = 0
+		$Control.visible = true
+		$Control/win_text.text = str("Player 1 WIN !")
+		$Control/Button.show()
 	
 	parallax += parallaxSpeed * delta
 	if 1280 <= parallax:
@@ -63,3 +71,8 @@ func _on_Timer_timeout():
 		_:
 			pass
 	add_child(prop)
+
+func _on_Button_pressed():
+	var isErr = get_tree().change_scene("res://scenes/Main.tscn")
+	if isErr:
+		OS.alert("An error has occurred, please restart the game.", "Error")
