@@ -57,8 +57,8 @@ func _on_Timer_timeout():
 	if luck == 2:
 		pass
 	var prop = props.instance()
-	var index = randi() % 7
 	var child_count = prop.get_child_count()
+	var index = randi() % child_count
 	for i in range(child_count - 1, -1, -1):
 		if i != index:
 			var child = prop.get_child(i)
